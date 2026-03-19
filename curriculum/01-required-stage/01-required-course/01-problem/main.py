@@ -18,13 +18,16 @@ def main():
     with log_file.open(encoding="utf-8", newline="") as file:
         logs = list(csv.DictReader(file))
 
-    reverse_logs = sorted(
-        logs,
-        key=lambda row: datetime.strptime(row["timestamp"], "%Y-%m-%d %H:%M:%S"),
-        reverse=True,
-    )
+    def timestamp_key(row):
+        return datetime.strptime(row["timestamp"], "%Y-%m-%d %H:%M:%S")
 
-    print_logs("=== 로그 출력: 과거 -> 현재 ===", logs)
+    chronological_logs = logs.copy()
+    chronological_logs.sort(key=timestamp_key)
+
+    reverse_logs = logs.copy()
+    reverse_logs.sort(key=timestamp_key, reverse=True)
+
+    print_logs("=== 로그 출력: 과거 -> 현재 ===", chronological_logs)
     print_logs(
         "=== 로그 출력: 현재 -> 과거 ===",
         reverse_logs,
