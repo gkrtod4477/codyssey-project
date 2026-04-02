@@ -44,12 +44,12 @@ class DummySensor:
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         log_line = (
             f"{timestamp}, "
-            f"{self.env_values['mars_base_internal_temperature']}, "
-            f"{self.env_values['mars_base_external_temperature']}, "
-            f"{self.env_values['mars_base_internal_humidity']}, "
-            f"{self.env_values['mars_base_external_illuminance']}, "
-            f"{self.env_values['mars_base_internal_co2']}, "
-            f"{self.env_values['mars_base_internal_oxygen']}\n"
+            f"mars_base_internal_temperature: {self.env_values['mars_base_internal_temperature']}, "
+            f"mars_base_external_temperature: {self.env_values['mars_base_external_temperature']}, "
+            f"mars_base_internal_humidity: {self.env_values['mars_base_internal_humidity']}, "
+            f"mars_base_external_illuminance: {self.env_values['mars_base_external_illuminance']}, "
+            f"mars_base_internal_co2: {self.env_values['mars_base_internal_co2']}, "
+            f"mars_base_internal_oxygen: {self.env_values['mars_base_internal_oxygen']}\n"
         )
 
         with open(self.log_path, "a", encoding="utf-8") as log_file:
