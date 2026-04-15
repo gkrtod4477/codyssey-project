@@ -1,0 +1,8 @@
+# true/false 로 출력 항목 제어
+operating_system=true
+operating_system_version=true
+cpu_type=true
+cpu_core_count=true
+memory_size=true
+cpu_usage=true
+memory_usage=true
